@@ -1,4 +1,4 @@
-[![ResultPairBr Framework](https://github.com/HashLoad/ResultPairBr/blob/main/Images/resultpair.png)](https://www.isaquepinheiro.com.br)
+[![ResultPairBr Framework](https://github.com/HashLoad/ResultPairBr/blob/main/Images/resultpair_fluxo.png)](https://www.isaquepinheiro.com.br)
 <p align="right" width="50%">
     <a href="https://pag.ae/bglQrWD"><img src="https://www.isaquepinheiro.com.br/imagens/doepagueseguro.png"> 
 </p>
