@@ -119,6 +119,13 @@ begin
     Result := TResultPair.Failure(Exception.Create('Failure!'));
   end;
 end;
+
+...
+
+function TService.fetchProductsSuccess: String;
+begin
+  Result := 'Result';
+end;
 ```
 ## Modelo 3 de uso com Thread
 ```Delphi
@@ -172,5 +179,13 @@ begin
   except
     Result := TResultPair.Failure(Exception.Create('Failure Future!'));
   end;
+end;
+
+...
+
+function TService.fetchProductsFuture: String;
+begin
+  Sleep(5000);
+  Result := 'Result';
 end;
 ```
