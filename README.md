@@ -12,7 +12,7 @@ ResultPair Brasil - Either Result for Delphi
 
 :heavy_check_mark: `Recurso 2`: ```TResultPairBr<String, Exception>.TryException<String>``` para (Captura do retorno duplo)
 
-:heavy_check_mark: `Recurso 3`: ```TResultPairBr<String, Exception>.Map(MapValue).TryException<String>``` para (Operações antes do retono duplo)
+:heavy_check_mark: `Recurso 3`: ```Map(), IsSuccess(), IsFailure()``` para (Métodos operações)
 
 ### Instalação ###
 O ResultPairBr não precisa ser instalado, basta adicionar as units no seu projeto e começar a usa-lo.
