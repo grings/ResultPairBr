@@ -53,10 +53,8 @@ end;
 
 function TRepository.fetchProductsFuture: TResultPair;
 var
-  LNumero: Double;
   LResult: String;
 begin
-  LNumero := 150;
   try
     LResult := FService.fetchProductsFuture;
     Result := TResultPair.Success('Success Future!');
