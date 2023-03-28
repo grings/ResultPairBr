@@ -64,6 +64,20 @@ begin
     Result := TResultPair.Failure(Exception.Create('Failure!'));
   end;
 end;
+
+...
+
+function TService.fetchProductsFailure: String;
+var
+  LNumero: Double;
+begin
+  // Forçando erro só para testar.
+  LNumero := 150;
+  if ((LNumero < 0) or (LNumero > 100)) then
+    raise Exception.Create('');
+
+  Result := 'Result';
+end;
 ```
 ## Modelo 2 de uso
 
