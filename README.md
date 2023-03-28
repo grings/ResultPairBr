@@ -6,7 +6,7 @@
 # ResultPairBr Framework for Delphi   [![License](https://img.shields.io/badge/Licence-LGPL--3.0-blue.svg)](https://opensource.org/licenses/LGPL-3.0)
 ResultPair Brasil - Either Result for Delphi
 
-# :hammer: Recursos de para caputra o reorno duplo :
+# :hammer: Recursos de para caputra o retorno duplo :
 
 :heavy_check_mark: `Recurso 1`: ```TResultPairBr<String, Exception>``` para (Definição do retorno duplo)
 
