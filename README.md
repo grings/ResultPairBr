@@ -50,6 +50,20 @@ begin
     LResult.Free;
   end;
 end;
+
+...
+
+function TRepository.fetchProductsFailure: TResultPair;
+var
+  LResult: String;
+begin
+  try
+    LResult := FService.fetchProductsFailure;
+    Result := TResultPair.Success('Success!');
+  except
+    Result := TResultPair.Failure(Exception.Create('Failure!'));
+  end;
+end;
 ```
 ## Modelo 2 de uso
 
@@ -75,6 +89,20 @@ begin
     Result := LMessage;
   finally
     LResult.Free;
+  end;
+end;
+
+...
+
+function TRepository.fetchProductsSuccess: TResultPair;
+var
+  LResult: String;
+begin
+  try
+    LResult := FService.fetchProductsSuccess;
+    Result := TResultPair.Success('Success!');
+  except
+    Result := TResultPair.Failure(Exception.Create('Failure!'));
   end;
 end;
 ```
@@ -116,5 +144,21 @@ begin
     end;
   end
   ).Start;
+end;
+
+...
+
+function TRepository.fetchProductsFuture: TResultPair;
+var
+  LNumero: Double;
+  LResult: String;
+begin
+  LNumero := 150;
+  try
+    LResult := FService.fetchProductsFuture;
+    Result := TResultPair.Success('Success Future!');
+  except
+    Result := TResultPair.Failure(Exception.Create('Failure Future!'));
+  end;
 end;
 ```
