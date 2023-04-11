@@ -12,6 +12,7 @@ type
     function isFailure: boolean; virtual; abstract;
     function ValueSuccess: S; virtual; abstract;
     function ValueFailure: F; virtual; abstract;
+
   end;
 
 implementation

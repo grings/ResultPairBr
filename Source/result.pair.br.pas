@@ -16,12 +16,14 @@ type
   public
     class function Success(ASuccess: S): TResultPairBr<S, F>;
     class function Failure(AFailure: F): TResultPairBr<S, F>;
-    // Map() Success
+    // Map() - Success
     function Map(AFunc: TFunc<S, S>): TResultPairBr<S, F>; overload;
-    // Map() Failure
-    function Map(AFunc: TFunc<F, F>): TResultPairBr<S, F>; overload;
+    // Map() - Failure
+    function Map(AFunc: TFunc<F, F>): TResultPairBr<S, F>; reintroduce; overload;
+    // TryException<R>() - Function
     function TryException<R>(ASuccess: TFunc<R>; AFailure: TFunc<R>): R; overload;
-    procedure TryException(ASuccess: TProc; AFailure: TProc); overload;
+    // TryException() - Procedure
+    procedure TryException(ASuccess: TProc; AFailure: TProc); reintroduce; overload;
   end;
 
 implementation
