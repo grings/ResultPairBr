@@ -10,8 +10,8 @@ uses
 type
   TResultSuccess<S, F> = class(TResultPairBr<S, F>)
   protected
-    constructor Create(AValue: S);
   public
+    constructor Create(AValue: S);
     destructor Destroy; override;
     function isSuccess: boolean; override;
     function isFailure: boolean; override;

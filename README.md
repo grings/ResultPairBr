@@ -1,12 +1,20 @@
-[![ResultPairBr Framework](https://github.com/HashLoad/ResultPairBr/blob/main/Images/resultpair.png)](https://www.isaquepinheiro.com.br)
-<p align="right" width="50%">
-    <a href="https://pag.ae/bglQrWD"><img src="https://www.isaquepinheiro.com.br/imagens/doepagueseguro.png"> 
+# ResultPairBr Framework for Delphi
+
+ResultPairBr é um framework para tratamento de resultados em aplicações Delphi. Ele fornece uma abordagem elegante e segura para lidar com resultados de operações que podem ter sucesso ou falha, ele possui dois campos: um para armazenar o valor do resultado em caso de sucesso, e outro para armazenar o motivo da falha em caso de erro. Com o ResultPairBr, os desenvolvedores podem criar operações que retornam um TResultPair em vez de um valor simples. Isso permite que o código que chama a operação verifique se o resultado foi bem sucedido ou não, e trate cada caso de forma apropriada
+
+<p align="center">
+  <a href="https://www.isaquepinheiro.com.br">
+    <img src="https://www.isaquepinheiro.com.br/projetos/resultpairbr-framework-for-delphi-opensource-15286.png" width="200" height="200">
+  </a>
 </p>
 
-# ResultPairBr Framework for Delphi   [![License](https://img.shields.io/badge/Licence-LGPL--3.0-blue.svg)](https://opensource.org/licenses/LGPL-3.0)
-ResultPair Brasil - Either Result for Delphi
+## 🏛 Delphi Versions
+Embarcadero Delphi XE e superior.
 
-# :hammer: Recursos de para caputra o reorno duplo :
+## ⚙️ Instalação
+O ResultPairBr não precisa ser instalado, basta adicionar as units no path libriry do seu delphi e começar a usa-lo.
+
+#@ :hammer: Recursos de para caputra o retorno duplo
 
 :heavy_check_mark: `Recurso 1`: ```TResultPairBr<String, Exception>``` para (Definição do retorno duplo)
 
@@ -14,20 +22,8 @@ ResultPair Brasil - Either Result for Delphi
 
 :heavy_check_mark: `Recurso 3`: ```TResultPairBr<String, Exception>.Map(MapValue).TryException<String>``` para (Operações antes do retono duplo)
 
-### Instalação ###
-O ResultPairBr não precisa ser instalado, basta adicionar as units no seu projeto e começar a usa-lo.
-
-### Requisitos ###
-Embarcadero Delphi XE e superior.
-
-### Versão Atual ###
-0.2023.3.28 (28 Mar 2023)
-
-Copyright (c) 2023 ResultPairBr Framework Team
-
-# Como usar ?
-
-## Modelo 1 de uso
+## ⚡️ Como usar
+#### Modelo 1 de uso
 
 ```Delphi
 function TController.Failure: String;
@@ -51,7 +47,7 @@ begin
   end;
 end;
 ```
-## Modelo 2 de uso
+#### Modelo 2 de uso
 
 ```Delphi
 function TController.Success: String;
@@ -78,7 +74,7 @@ begin
   end;
 end;
 ```
-## Modelo 3 de uso com Thread
+#### Modelo 3 de uso com Thread
 ```Delphi
 procedure TController.FutureNoAwait;
 var
@@ -118,3 +114,26 @@ begin
   ).Start;
 end;
 ```
+
+## ✍️ License
+[![License](https://img.shields.io/badge/Licence-LGPL--3.0-blue.svg)](https://opensource.org/licenses/LGPL-3.0)
+
+## ⛏️ Contribuição
+
+Nossa equipe adoraria receber contribuições para este projeto open source. Se você tiver alguma ideia ou correção de bug, sinta-se à vontade para abrir uma issue ou enviar uma pull request.
+
+[![Issues](https://img.shields.io/badge/Issues-channel-orange)](https://github.com/HashLoad/ormbr/issues)
+
+Para enviar uma pull request, siga estas etapas:
+
+1. Faça um fork do projeto
+2. Crie uma nova branch (`git checkout -b minha-nova-funcionalidade`)
+3. Faça suas alterações e commit (`git commit -am 'Adicionando nova funcionalidade'`)
+4. Faça push da branch (`git push origin minha-nova-funcionalidade`)
+5. Abra uma pull request
+
+## 📬 Contato
+[![Telegram](https://img.shields.io/badge/Telegram-channel-blue)](https://t.me/hashload)
+
+## 💲 Doação
+[![Doação](https://img.shields.io/badge/PagSeguro-contribua-green)](https://pag.ae/bglQrWD)
