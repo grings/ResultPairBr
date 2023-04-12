@@ -12,7 +12,10 @@ ResultPairBr é um framework para tratamento de resultados em aplicações Delph
 Embarcadero Delphi XE e superior.
 
 ## ⚙️ Instalação
-O ResultPairBr não precisa ser instalado, basta adicionar as units no path libriry do seu delphi e começar a usa-lo.
+Instalação usando o [`boss install`](https://github.com/HashLoad/boss) comando:
+```sh
+boss install "https://github.com/HashLoad/resultpairbr"
+```
 
 #@ :hammer: Recursos de para caputra o retorno duplo
 
