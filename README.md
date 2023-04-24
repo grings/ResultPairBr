@@ -1,6 +1,6 @@
-# ResultPairBr Framework for Delphi
+# ResultPairBr Library for Delphi
 
-ResultPairBr é um framework para tratamento de resultados em aplicações Delphi. Ele fornece uma abordagem elegante e segura para lidar com resultados de operações que podem ter sucesso ou falha, ele possui dois campos: um para armazenar o valor do resultado em caso de sucesso, e outro para armazenar o motivo da falha em caso de erro. Com o ResultPairBr, os desenvolvedores podem criar operações que retornam um TResultPair em vez de um valor simples. Isso permite que o código que chama a operação verifique se o resultado foi bem sucedido ou não, e trate cada caso de forma apropriada
+ResultPairBr é um library para tratamento de resultados em aplicações Delphi. Ele fornece uma abordagem elegante e segura para lidar com resultados de operações que podem ter sucesso ou falha, ele possui dois campos: um para armazenar o valor do resultado em caso de sucesso, e outro para armazenar o motivo da falha em caso de erro. Com o ResultPairBr, os desenvolvedores podem criar operações que retornam um TResultPair em vez de um valor simples. Isso permite que o código que chama a operação verifique se o resultado foi bem sucedido ou não, e trate cada caso de forma apropriada
 
 <p align="center">
   <a href="https://www.isaquepinheiro.com.br">
