@@ -8,7 +8,7 @@ uses
   Threading,
 
   URepository,
-  result.pair.br;
+  result.pair;
 
 type
   TThreadObserver = procedure(AValue: String) of object;
@@ -26,7 +26,8 @@ type
     function FutureAwait: String;
     procedure FutureNoAwait;
 
-    property OnThreadObserver: TThreadObserver read FThreadObserver write FThreadObserver;
+    property OnThreadObserver: TThreadObserver read FThreadObserver
+                                               write FThreadObserver;
   end;
 
 implementation
@@ -46,34 +47,33 @@ end;
 
 function TController.Failure: String;
 var
-  LResult: TResultPair;
+  LResult: ResultPair;
   LMessage: String;
 begin
   Result := '';
 
   LResult := FRepository.fetchProductsFailure;
-  try
-    if LResult.isSuccess() then
-      LMessage := LResult.ValueSuccess
-    else
-    if LResult.isFailure() then
-      LMessage := LResult.ValueFailure.Message;
-
-    Result := LMessage;
-  finally
-    LResult.Free;
+  if LResult.isSuccess() then
+    LMessage := LResult.ValueSuccess
+  else
+  if LResult.isFailure() then
+  begin
+    LMessage := LResult.ValueFailure;
+    LResult.DestroyFailure;
+    raise Exception.Create(LMessage);
   end;
+  Result := LMessage;
 end;
 
 function TController.FutureAwait: String;
 var
-  LResult: IFuture<TResultPair>;
+  LResult: IFuture<ResultPair>;
   LMessage: String;
 begin
   Result := '';
   LMessage := '';
 
-  LResult := TTask.Future<TResultPair>(FRepository.fetchProductsFuture);
+  LResult := TTask.Future<ResultPair>(FRepository.fetchProductsFuture);
   try
     LResult.Value.TryException(
       procedure
@@ -82,12 +82,10 @@ begin
       end,
       procedure
       begin
-        LMessage := LResult.Value.ValueFailure.Message;
+        LMessage := LResult.Value.ValueFailure;
       end
     );
   finally
-    // Libera o tipo TResultPair que é criado internamente
-    LResult.Value.Free;
     // Libera o TTask.Future<>
     LResult := nil;
   end;
@@ -96,7 +94,7 @@ end;
 
 procedure TController.FutureNoAwait;
 var
-  LResult: IFuture<TResultPair>;
+  LResult: IFuture<ResultPair>;
   LMessage: String;
 begin
   LMessage := '';
@@ -104,16 +102,16 @@ begin
   TThread.CreateAnonymousThread(
   procedure
   begin
-    LResult := TTask.Future<TResultPair>(FRepository.fetchProductsFuture);
+    LResult := TTask.Future<ResultPair>(FRepository.fetchProductsFuture);
     try
-      LMessage := LResult.Value.Map(MapValue).TryException<String>(
-        function: String
+      LMessage := LResult.Value.Map(MapValue, nil).TryException<String>(
+        function(const Value: ResultPair): String
         begin
-          Result := LResult.Value.ValueSuccess;
+          Result := Value.ValueSuccess;
         end,
-        function: String
+        function(const Value: ResultPair): String
         begin
-          Result := LResult.Value.ValueFailure.Message;
+          Result := Value.ValueFailure;
         end
       );
       TThread.Queue(nil,
@@ -123,8 +121,6 @@ begin
             FThreadObserver(LMessage);
         end);
     finally
-      // Libera o tipo TResultPair que é criado internamente ao TTask
-      LResult.Value.Free;
       // Libera o TTask.Future<>
       LResult := nil;
     end;
@@ -139,26 +135,22 @@ end;
 
 function TController.Success: String;
 var
-  LResult: TResultPair;
+  LResult: ResultPair;
   LMessage: String;
 begin
   Result := '';
   LResult := FRepository.fetchProductsSuccess;
-  try
-    LMessage := LResult.TryException<String>(
-      function: String
-      begin
-        Result := LResult.ValueSuccess;
-      end,
-      function: String
-      begin
-        Result := LResult.ValueFailure.Message;
-      end
-    );
-    Result := LMessage;
-  finally
-    LResult.Free;
-  end;
+  LMessage := LResult.TryException<String>(
+    function(const Value: ResultPair): String
+    begin
+      Result := Value.ValueSuccess;
+    end,
+    function(const Value: ResultPair): String
+    begin
+      Result := Value.ValueFailure;
+    end
+  );
+  Result := LMessage;
 end;
 
 end.
