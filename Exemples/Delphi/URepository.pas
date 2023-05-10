@@ -5,12 +5,12 @@ interface
 uses
   SysUtils,
   UService,
-  result.pair.br;
+  result.pair;
 
 type
   Success = String;
-  Error = Exception;
-  TResultPair = TResultPairBr<Success, Error>;
+  Error = String;
+  ResultPair = TResultPair<Success, Error>;
 
   TRepository = class
   private
@@ -19,9 +19,9 @@ type
     constructor Create;
     destructor Destroy; override;
 
-    function fetchProductsSuccess: TResultPair;
-    function fetchProductsFailure: TResultPair;
-    function fetchProductsFuture: TResultPair;
+    function fetchProductsSuccess: ResultPair;
+    function fetchProductsFailure: ResultPair;
+    function fetchProductsFuture: ResultPair;
   end;
 
 implementation
@@ -39,39 +39,38 @@ begin
   inherited;
 end;
 
-function TRepository.fetchProductsFailure: TResultPair;
+function TRepository.fetchProductsFailure: ResultPair;
 var
   LResult: String;
 begin
   try
     LResult := FService.fetchProductsFailure;
-    Result := TResultPair.Success('Success!');
+    Result.Success('Success!');
   except
-    Result := TResultPair.Failure(Exception.Create('Failure!'));
+    Result.Failure('Failure!');
   end;
 end;
 
-function TRepository.fetchProductsFuture: TResultPair;
+function TRepository.fetchProductsFuture: ResultPair;
 var
   LResult: String;
 begin
   try
     LResult := FService.fetchProductsFuture;
-    Result := TResultPair.Success('Success Future!');
+    Result.Success('Success Future!');
   except
-    Result := TResultPair.Failure(Exception.Create('Failure Future!'));
+    Result.Failure('Failure Future!');
   end;
 end;
 
-function TRepository.fetchProductsSuccess: TResultPair;
+function TRepository.fetchProductsSuccess: ResultPair;
 var
   LResult: String;
 begin
   try
     LResult := FService.fetchProductsSuccess;
-    Result := TResultPair.Success('Success!');
   except
-    Result := TResultPair.Failure(Exception.Create('Failure!'));
+    Result.Failure('Failure!');
   end;
 end;
 

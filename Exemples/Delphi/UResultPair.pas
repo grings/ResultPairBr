@@ -93,7 +93,6 @@ end;
 procedure TForm1.ThreadObserver(AValue: String);
 begin
   Memo1.Lines.Add(AValue);
-  AValue.ToBoolean('');
 end;
 
 initialization
