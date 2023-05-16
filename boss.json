@@ -1,8 +1,8 @@
 {
 	"name": "ResultPairBr",
-	"description": "ResulPairBr Framework for Delphi",
-	"version": "0.1.6",
-	"homepage": "https://www.isaquepinheiro.com.br",
+	"description": "ResulPairBr Library for Delphi",
+	"version": "0.1.7",
+	"homepage": "www.isaquepinheiro.com.br",
 	"mainsrc": "Source/",
 	"projects": [],
 	"dependencies": {}
