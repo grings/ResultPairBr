@@ -1,5 +1,5 @@
 {
-           ResultPair - Result Multiple for Delphi/Lazarus
+           ResultPair - Result Multiple for Delphi
 
                    Copyright (c) 2023, Isaque Pinheiro
                           All rights reserved.
